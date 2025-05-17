@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.o
+*.obj
+*.exe
+*.out
+*.log
+
+# VSCode and IDE configs
+.vscode/*
+*.user
+
+# DO NOT ignore
+!.vscode/tasks.json
+
+# System files
+.DS_Store
+Thumbs.db
