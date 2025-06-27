@@ -1,15 +1,12 @@
 
 #include <iostream>
-#include "Patient.h"
-#include "PatientService.h"
-#include "PatientFileRepository.h"
-#include "Menu.h"
+#include "cli/Menu.h"
 
 int main() {
     try {
         runMenu();
     } catch (const std::exception& e) {
-        std::cerr << "An error occured: " << e.what() << std::endl;
+        std::cerr << "An error occurred: " << e.what() << std::endl;
         return 1;
     }
     return 0;

@@ -1,4 +1,5 @@
 #include "CsvPatientRepository.h"
+#include <iostream>
 
 void serializePatient(std::ofstream& file, const Patient& p) {
     file << p.first_name << ","
@@ -10,18 +11,35 @@ void serializePatient(std::ofstream& file, const Patient& p) {
 
 Patient deserializePatient(std::istringstream& iss) {
     Patient p;
-    std::getline(iss, p.first_name, ',');
-    std::getline(iss, p.last_name, ',');
-    std::getline(iss, p.pesel, ',');
-    std::getline(iss, p.address, ',');
-    std::getline(iss, p.phone_number, ',');
+
+    std::string fields[5];
+
+    for (int i = 0; i < 4; ++i) {
+        if (!std::getline(iss, fields[i], ',')) return {};
+    }
+
+    std::getline(iss, fields[4]);
+
+    p.first_name = fields[0];
+    p.last_name = fields[1];
+    p.pesel = fields[2];
+    p.address = fields[3];
+    p.phone_number = fields[4];
+
     return p;
 }
 
 std::vector<Patient> CsvPatientRepository::load() {
-    return CsvReader::read<Patient>(file, deserializePatient);
+    try {
+        return CsvReader::read<Patient>(file, deserializePatient);
+    } catch (const std::exception& e) {
+        std::cerr << "[ERROR] CsvPatientRepositd failed: " << e.what() << "\n";
+        throw;
+    }
 }
 
 void CsvPatientRepository::save(const std::vector<Patient>& items) {
     CsvWriter::write<Patient>(items, file, serializePatient);
 }
+
+

@@ -14,6 +14,7 @@ class CsvReader {
             std::vector<T> items;
             std::string line;
             while(std::getline(file, line)) {
+                if (line.empty()) continue;
                 std::istringstream iss(line);
                 items.push_back(deserializer(iss));
             }

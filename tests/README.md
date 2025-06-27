@@ -3,47 +3,28 @@ This folder contains CLI application tests for managing patient data.
 Test are spearated according to tests levels and arrange in a separated catalogues.
 
 ## Test structure
-- `unit/` - single and separated classes or functions tests ('Patient', 'PatientService')
-- `integration/` - cooperation between modules tests (example: add or read data from file)
-- `system/` - end-to-end tests, testing the whole system (runMenu())
-- `regression/` - tests that ensure that new changes do not break existing functions, checking edge cases and error handling (example: PESEL == 0)
-
-## Behavior-Driven Development (BDD)
-This project uses BDD to define the behavior of the application. 
-The tests are written in a way that describes the expected behavior of the application in a human-readable format. 
-This helps to ensure that the application meets the requirements and behaves as expected.
-
-### Features
-Feature 1: Saving and reading patient data
-  Scenario: Save patient data to file
-    Given a patient with valid data
-    When the patient data is saved to file
-    Then the patient data should be saved successfully
-
-  Scenario: Read patient data from file
-    Given a file with patient data
-    When the patient data is read from file
-    Then the patient data should be read successfully
-
-Feature 2: Validating patient data
-  Scenario: Validate patient data with valid PESEL
-    Given a patient with valid PESEL
-    When the patient data is validated
-    Then the validation should be successful
-
-  Scenario: Validate patient data with invalid PESEL
-    Given a patient with invalid PESEL
-    When the patient data is validated
-    Then the validation should fail
+| Test | Content | Description |
+| ----------- | ----------- | ----------- |
+| Unit Tests | PatientTest | Test of object - Patient, construction  |
+| Unit Tests | ValidatorTest | Checking PESEL validation |
+| Unit Tests | PatientInputCollectorTest | Interaction test (mock std::cin) or input validation user |
+| Unit Tests | PatientPrinterTest | Output test (mock std::cout / redirect) |
+| Integration Tests | SavePatientDataToCsvFile| Save patient data to CSV file and content comparision |
+| Integration Tests | ReadPatientDataFromCsvFile | Read patient data from CSV file and comparision with expected object |
+| Integration Tests | DeletePatientDataFromCsvFile | Remove patient and check file correctnes |
+| Integration Tests | EditPatientDataInCsvFile | Edit patient data and check recording |
+| System Tests | RunMenu | Simulate full CLI session with interactions  |
+| Regression Tests | CheckIfCsvFileCanBeRead | Check if reading CSV file is still correct |
+| Regression Tests | CheckIfCsvFileExist | Check if CSV file exist and is accesible |
+| Main | AllTests | Tests agregation, with filtering possibility ( --gtest_filter) |
 
 ## How to run the tests?
-To run the tests, you need to have GoogleTest installed and configured in your project.
+To run the tests, you need to install GoogleTest and configured it in your project.
 Add Google Tests to project:
 ```
 git submodule add https://github.com/google/googletest.git external/googletest
 git submodule update --init
 ```
 
-All tests are located in the AllTests.cpp file.
-
-The output of the test is report.xaml file, which can be viewed in the browser.
+### Tests results
+Tests output report is located in report.xml file.

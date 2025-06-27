@@ -1,12 +1,26 @@
 
 add_library(PatientDatabaseCLI STATIC
-    Menu.h
-    Menu.cpp
-    Patient.h
-    PatientFileRepository.h
-    PatientFileRepository.cpp
-    PatientService.h
-    PatientService.cpp
+    cli/Menu.h
+    cli/Menu.cpp
+    cli/PatientInputCollector.h
+    cli/PatientInputCollector.cpp
+    cli/PatientPrinter.h
+    cli/PatientPrinter.cpp
+    
+    domain/Patient.h
+    domain/Patient.cpp
+    domain/IRepository.h
+
+    infrastructure/CsvPatientRepository.h
+    infrastructure/CsvPatientRepository.cpp
+    infrastructure/CsvReader.h
+    infrastructure/CsvWriter.h
+    
+    services/PatientService.h
+    services/PatientService.cpp
+
+    validation/Validator.h
+    validation/Validator.cpp
 )
 
 target_include_directories(PatientDatabaseCLI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

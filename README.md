@@ -1,62 +1,75 @@
 # Patient Database CLI
-## Objective
-CLI application to store patient data in csv file and patient results.
 
-## Key results
-- Patients data stored in .csv file
-- Possibility to add, edit, delete patients data
-- Pssibility to read patients results
-- Unit, integration, system and regression Tests
-- TDD
-- CI/CD
+## 🎯 Objective
+Command Line Interface (CLI) application for managing patient data and storing results in CSV files.
 
-## Content
-- [App examples](./README.md#app-examples)
-- [How to run the app?](./README.md#how-to-run-the-app)
-  - [Environment](./README.md#environment)
-  - [Used technologies](./README.md#used-technologies)
-  - [Database and data](./README.md#database-and-data)
-  - [Run the app](./README.md#run-the-app)
-- [Testing](./README.md#testing)
-- [License](./README.md#license)
+## ✅ Key Features
+- Store patient data in a `.csv` file
+- Add, edit, delete patient records via command line
+- Includes unit, integration, system, and regression tests
+- Behavior-Driven Development (BDD)
+- CI/CD pipeline using PowerShell
 
-## App examples
+## 📁 Project Structure
+- `src/` — main application source code
+- `tests/` — unit and integration tests
+- `data/` — stored `.csv` patient data
+- `build/` — compiled artifacts
+- `ci-pipeline.ps1` — CI/CD build & run script
 
-## How to run the app?
-### Environment
-- Tested on Windows 11
+## 🧪 Testing
+Detailed structure and description: [`tests/README.md`](./tests/README.md)
 
-### Used technologies
-- Visual Studio Code
+## ▶️ How to Run the App
+
+### 💻 Environment
+- Tested on **Windows 11**
+- Visual Studio Code + CMake toolchain
+
+### 🛠️ Used Technologies
 - C++
-- CMake 
+- CMake
 - GoogleTest
-- Powershell
-- JSON
+- PowerShell
+- JSON (planned or for configs)
 
-### Database and data
-Add patient data to .csv database via command line.
-Storing patient test results in a separate .txt file.
+### 🗂️ Data Handling
+- Patient data stored in `.csv` file
+- CLI-based interactions (add/edit/delete)
 
-### Run the app
-Download files from GitHub
-```
+### 🚀 Run the App
+
+1. **Clone the repository:**
+```bash
 git clone https://github.com/Susannnnnna/Cpp_PatientDatabaseCLI
+cd Cpp_PatientDatabaseCLI
 ```
-Needed installations in Visual Studio Code:
-Install extensions:
-- GitHub.vscode-pull-request-github
-- jenkins-pipeline-linter-connector
-- redhat.vscode-yaml???
+2. Open in VS Code and install recommended extensions
+- GitHub Pull Requests and Issues
+- CMake Tools
+- CMake
+- YAML (optional)
+- PowerShell
 
-Run the app by using Ctr+Shift+B
+3. Build and run
+    
+Press Ctrl + Shift + B in VS Code
 
+Or use terminal:
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Debug
 ```
-cd path\to\your\project\build cmake --build . --config Debug
+
+4. Run main application
+```bash
+./src/Debug/PatientDatabaseCLIApp.exe
 ```
 
-## Testing
-Description available in: tests/README.md
+### 🔗 Useful Links
+- [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
 
 ## License
 [MIT license](https://opensource.org/licenses/MIT)

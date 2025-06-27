@@ -7,5 +7,5 @@ class IRepository {
     public:
         virtual std::vector<T> load() = 0;
         virtual void save(const std::vector<T>& items) = 0;
-        virtualn ~IRepository() = default;
+        virtual ~IRepository() = default;
 };
