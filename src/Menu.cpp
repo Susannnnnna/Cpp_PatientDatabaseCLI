@@ -3,13 +3,11 @@
 #include <filesystem>
 #include <fstream>
 #include "Menu.h"
-#include "Patient.h"
-#include "PatientService.h"
-#include "PatientFileRepository.h"
-#include "HealthInfoFileRepository.h"
+#include "domain/Patient.h"
+#include "services/PatientService.h"
 
 void runMenu() {
-    std::string path = std::string(PROJECT_SOURCE_DIR) + std::string("/data");
+    std::string path = std::string("./data");
     std::filesystem::create_directories(path);
     std::string patientsFilePath = path + "/patients.csv";
 
@@ -21,7 +19,7 @@ void runMenu() {
     std::vector<Patient> patients = PatientFileRepository::loadPatients(patientsFilePath);
     int choice;
     do {
-        std::cout << "1. Add patient\n2. Edit\n3. Delete\n4. Show\n5. Show health data\n0. Exit\n";
+        std::cout << "1. Add patient\n2. Edit\n3. Delete\n4. Show\n0. Exit\n";
         std::cin >> choice;
         switch (choice) {
             case 1: {
@@ -38,13 +36,6 @@ void runMenu() {
             }
             case 4: {
                 PatientService::listPatients(patients);
-                break;
-            }
-            case 5: {
-                std::string pesel;
-                std::cout << "Enter PESEL: ";
-                std::cin >> pesel;
-                HealthInfoFileRepository::displayHealthInfo(pesel);
                 break;
             }
             case 0:

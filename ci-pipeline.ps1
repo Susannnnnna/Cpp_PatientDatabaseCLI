@@ -1,4 +1,3 @@
-
 # Stop script on error
 $ErrorActionPreference = "Stop"
 
@@ -28,20 +27,29 @@ if (-not (cmake --build .)) {
     exit 1
 }
 
-# Run tests if any test executables exist
-$testExe = Get-ChildItem -Recurse -Filter "*.exe" | Where-Object { $_.Name -like "*test*" }
+# === Run tests from AllTests.exe and save unified XML report ===
+
+$testExe = Get-ChildItem -Recurse -Filter "AllTests.exe"
 
 if ($testExe) {
-    Write-Info "Running tests..."
-    foreach ($exe in $testExe) {
-        if (-not (& $exe.FullName)) {
-            Write-ErrorMsg "Tests failed."
-            exit 1
-        }
+    Write-Info "Running tests from AllTests.exe..."
+
+    $reportDir = Join-Path $PSScriptRoot "test-report"
+    New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
+    $reportPath = Join-Path $reportDir "report.xml"
+
+    if (-not (& $testExe.FullName "--gtest_output=xml:$reportPath")) {
+        Write-ErrorMsg "Tests failed."
+        exit 1
     }
+
     Write-Success "All tests passed."
+    Write-Info "Test report saved to: $reportPath"
+    
+    Write-Info "Opening test report in default browser..."
+    Start-Process $reportPath
 } else {
-    Write-Info "No test executables found. Skipping tests."
+    Write-Info "AllTests.exe not found. Skipping tests."
 }
 
 # Run main application if exists

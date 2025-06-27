@@ -1,11 +1,14 @@
 # Patient Database CLI
 ## Objective
-Application with CLI for managing patient database.
+CLI application to store patient data in csv file and patient results.
 
 ## Key results
-- Database with patients in .csv file
-- Application with CLI
+- Patients data stored in .csv file
+- Possibility to add, edit, delete patients data
+- Pssibility to read patients results
+- Unit, integration, system and regression Tests
 - TDD
+- CI/CD
 
 ## Content
 - [App examples](./README.md#app-examples)
@@ -18,40 +21,42 @@ Application with CLI for managing patient database.
 - [License](./README.md#license)
 
 ## App examples
-Examples of use - short demo or screen
 
 ## How to run the app?
 ### Environment
-- Windows 11
+- Tested on Windows 11
 
 ### Used technologies
 - Visual Studio Code
 - C++
 - CMake 
 - GoogleTest
+- Powershell
+- JSON
 
 ### Database and data
-Add data to .csv database via command line.
+Add patient data to .csv database via command line.
+Storing patient test results in a separate .txt file.
 
 ### Run the app
 Download files from GitHub
 ```
-git clone https://github.com/Susannnnnna/
+git clone https://github.com/Susannnnnna/Cpp_PatientDatabaseCLI
 ```
-For Visual Studio Code:
+Needed installations in Visual Studio Code:
 Install extensions:
 - GitHub.vscode-pull-request-github
 - jenkins-pipeline-linter-connector
 - redhat.vscode-yaml???
+
+Run the app by using Ctr+Shift+B
 
 ```
 cd path\to\your\project\build cmake --build . --config Debug
 ```
 
 ## Testing
-For Visual Studio Code:
-```
-cd path\to\your\project\build cmake --build . --target RUN_TESTS --config Debug
-```
+Description available in: tests/README.md
+
 ## License
 [MIT license](https://opensource.org/licenses/MIT)

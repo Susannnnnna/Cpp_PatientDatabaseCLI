@@ -3,8 +3,6 @@ add_library(PatientDatabaseCLI STATIC
     Menu.h
     Menu.cpp
     Patient.h
-    HealthInfoFileRepository.h
-    HealthInfoFileRepository.cpp
     PatientFileRepository.h
     PatientFileRepository.cpp
     PatientService.h

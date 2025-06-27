@@ -1,4 +1,5 @@
 #include "PatientService.h"
+#include "Validator.h"
 #include <iostream>
 #include <algorithm>
 
@@ -10,6 +11,10 @@ std::vector<Patient> PatientService::addPatient(const std::vector<Patient>& pati
     std::cin >> newPatient.last_name;
     std::cout << "Enter PESEL: ";
     std::cin >> newPatient.pesel;
+    if(!Validator::isValidPesel(newPatient.pesel)) {
+        std::cout << "Invalid PESEL. Please try again.\n";
+        return patients;
+    }
     std::cout << "Enter address: ";
     std::cin.ignore(); // Clear the newline character from the input buffer
     std::getline(std::cin, newPatient.address);
@@ -22,7 +27,7 @@ std::vector<Patient> PatientService::addPatient(const std::vector<Patient>& pati
 }
 
 std::vector<Patient> PatientService::editPatient(const std::vector<Patient>& patients) {
-    unsigned long long pesel;
+    std::string pesel;
     std::cout << "Enter PESEL of the patient to edit: ";
     std::cin >> pesel;
 
@@ -68,7 +73,7 @@ std::vector<Patient> PatientService::editPatient(const std::vector<Patient>& pat
 }
 
 std::vector<Patient> PatientService::deletePatient(const std::vector<Patient>& patients) {
-    unsigned long long pesel;
+    std::string pesel;
     std::cout << "Enter PESEL of the patient to delete: ";
     std::cin >> pesel;
 
