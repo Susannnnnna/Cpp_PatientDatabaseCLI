@@ -9,9 +9,10 @@
 #include "../validation/Validator.h"
 
 void runMenu() {
-    std::string path = std::filesystem::absolute("data").string();
+    std::filesystem::path path = std::filesystem::path(PROJECT_DIR) / "data";
+    // std::cout << "[DEBUG] Absolute path to 'data': " << path.string() << "\n";
     std::filesystem::create_directories(path);
-    std::string filePath = path + "/patients.csv";
+    std::string filePath = (path / "patients.csv").string();
 
     if (!std::filesystem::exists(filePath)) {
         std::ofstream createFile(filePath);
@@ -39,6 +40,7 @@ void runMenu() {
                     break;
                 }
                 patients = service.addPatient(patients, newPatient);
+                repo.save(patients);
                 printer.printMessage("Patient added successfully.");
                 break;
             }
@@ -64,6 +66,4 @@ void runMenu() {
                 printer.printMessage("Invalid choice. Please try again.");
         }
     } while (choice != 0);
-
-    repo.save(patients);
 }

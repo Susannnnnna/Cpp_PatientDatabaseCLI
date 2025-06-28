@@ -1,9 +1,6 @@
 #include <gtest/gtest.h>
 #include "../src/domain/Patient.h"
 
-// Given: correct patient data
-// When: check if patient initializes correctly
-// Then: should initialize with correct values
 namespace TestData {
     Patient makeSamplePatient() {
         return Patient{
@@ -16,7 +13,10 @@ namespace TestData {
     }
 }
 
-TEST(PatientTest, GivenValidData_ShouldInitializeCorrectly) {
+// Given: correct patient data
+// When: check if patient initializes correctly
+// Then: should initialize with correct values
+TEST(PatientTestBDD, GivenValidData_WhenPatientCreated_ThenFieldsAreInitializedCorrectly) {
     Patient p = TestData::makeSamplePatient();    
     EXPECT_EQ(p.first_name, "John");
     EXPECT_EQ(p.last_name, "Doe");

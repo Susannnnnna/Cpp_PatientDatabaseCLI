@@ -27,7 +27,7 @@ if (-not (cmake --build .)) {
     exit 1
 }
 
-# === Run tests from AllTests.exe and save unified XML report ===
+# === RUN TESTS from AllTests.exe and save unified XML report ===
 
 $testExe = Get-ChildItem -Recurse -Filter "AllTests.exe"
 
@@ -36,7 +36,7 @@ if ($testExe) {
 
     $reportDir = Join-Path $PSScriptRoot "test-report"
     New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
-    $reportPath = Join-Path $reportDir "report.xml"
+    $reportPath = Join-Path $reportDir "tests/report.xml"
 
     if (-not (& $testExe.FullName "--gtest_output=xml:$reportPath")) {
         Write-ErrorMsg "Tests failed."
@@ -52,7 +52,7 @@ if ($testExe) {
     Write-Info "AllTests.exe not found. Skipping tests."
 }
 
-# Run main application if exists
+# === RUN MAIN APP if exists ===
 $appExe = Get-ChildItem -Recurse -Filter "PatientDatabaseCLIApp.exe"
 
 if ($appExe) {
