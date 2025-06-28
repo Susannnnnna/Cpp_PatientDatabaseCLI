@@ -36,7 +36,7 @@ if ($testExe) {
 
     $reportDir = Join-Path $PSScriptRoot "test-report"
     New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
-    $reportPath = Join-Path $reportDir "tests/report.xml"
+    $reportPath = Join-Path $reportDir "report.xml"
 
     if (-not (& $testExe.FullName "--gtest_output=xml:$reportPath")) {
         Write-ErrorMsg "Tests failed."

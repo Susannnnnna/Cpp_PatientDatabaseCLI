@@ -5,17 +5,17 @@ Command Line Interface (CLI) application for managing patient data and storing r
 
 ## ✅ Key Features
 - Store patient data in a `.csv` file
-- Add, edit, delete patient records via command line
+- Add, view, edit, delete patient records via command line
 - Includes unit, integration, system, and regression tests
 - Behavior-Driven Development (BDD)
-- CI/CD pipeline using PowerShell
+- CI pipeline using PowerShell
 
 ## 📁 Project Structure
 - `src/` — main application source code
 - `tests/` — unit and integration tests
 - `data/` — stored `.csv` patient data
 - `build/` — compiled artifacts
-- `ci-pipeline.ps1` — CI/CD build & run script
+- `ci-pipeline.ps1` — CI build & run script
 
 ## 🧪 Testing
 Detailed structure and description: [`tests/README.md`](./tests/README.md)
@@ -31,11 +31,11 @@ Detailed structure and description: [`tests/README.md`](./tests/README.md)
 - CMake
 - GoogleTest
 - PowerShell
-- JSON (planned or for configs)
+- JSON (only for vscode tasks)
 
 ### 🗂️ Data Handling
 - Patient data stored in `.csv` file
-- CLI-based interactions (add/edit/delete)
+- CLI-based interactions (add/view/edit/delete)
 
 ### 🚀 Run the App
 
@@ -48,7 +48,6 @@ cd Cpp_PatientDatabaseCLI
 - GitHub Pull Requests and Issues
 - CMake Tools
 - CMake
-- YAML (optional)
 - PowerShell
 
 3. Build and run

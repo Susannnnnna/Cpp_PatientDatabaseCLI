@@ -20,7 +20,7 @@ Tests are structured by type (unit, integration, system, regression) and organiz
 |                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |
 | **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |
 | **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |
-|                     | `CheckIfCsvFileExist`           | Ensures required `.csv` file exists and is accessible                          |
+|                     | `CheckIfCsvFileExist`           | Ensures the required `.csv` file exists and is accessible                          |
 | **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |
 
 ---
@@ -40,10 +40,10 @@ git submodule update --init
 
 Ensure you configure your CMake project accordingly (see project-level CMakeLists.txt).
 
-### Tests results
+### Test results
 Test results are printed to the terminal and saved as an XML report:
 ```bash
-build/tests/report.xml
+test-report/report.xml
 ```
 
 This can be used in CI pipelines or imported into tools like Jenkins or GitHub Actions.
