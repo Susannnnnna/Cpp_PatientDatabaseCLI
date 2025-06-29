@@ -1,4 +1,4 @@
-
+# Main app library
 add_library(PatientDatabaseCLI STATIC
     cli/Menu.h
     cli/Menu.cpp
@@ -24,8 +24,8 @@ add_library(PatientDatabaseCLI STATIC
 )
 
 target_include_directories(PatientDatabaseCLI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
 add_compile_definitions(PROJECT_DIR="${CMAKE_SOURCE_DIR}")
 
+# Main library paths and links
 add_executable(PatientDatabaseCLIApp main.cpp)
 target_link_libraries(PatientDatabaseCLIApp PatientDatabaseCLI)

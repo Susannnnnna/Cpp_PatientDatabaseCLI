@@ -12,6 +12,7 @@ TEST(PatientInputCollectorTestBDD, GivenValidInput_WhenCollectsPatient_ThenRetur
 
     PatientInputCollector collector;
     Patient p = collector.collectNewPatient();
+    
 
     std::cin.rdbuf(originalCin);
 

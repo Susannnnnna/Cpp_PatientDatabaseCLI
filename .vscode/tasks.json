@@ -16,11 +16,12 @@
         {
             "label": "Run Full Pipeline",
             "type": "shell",
-            "command": "powershell ./ci-pipeline.ps1", //Ctrl+Shift+B
+            "command": "powershell ./ci-pipeline.ps1",
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+        "problemMatcher": []
         }
     ]
 }
