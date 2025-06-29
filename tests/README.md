@@ -21,7 +21,7 @@ Tests are structured by type (unit, integration, system, regression) and organiz
 | **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |Not started|
 | **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |Not started|
 |                     | `CheckIfCsvFileExist`           | Ensures the required `.csv` file exists and is accessible                          |Not started|
-| **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |Finishe
+| **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |Finished |
 
 ---
 
