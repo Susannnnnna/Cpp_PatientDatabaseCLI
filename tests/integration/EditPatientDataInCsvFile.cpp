@@ -9,7 +9,10 @@
 
 namespace fs = std::filesystem;
 
-TEST(EditPatientDataInCsvFileBdd, GivenPatientInCsv_WhenEditByPesel_ThenUpdatedDataIsSaved) {
+// Given: a CSV file with patient data
+// When: a patient is edited by their PESEL (using PatientService)
+// Then: the CSV file should be updated correctly
+TEST(EditPatientDataInCsvFileBDD, GivenPatientInCsv_WhenEditByPesel_ThenUpdatedDataIsSaved) {
     std::string filePath = "test-output/edit_test.csv";
     fs::create_directories("test-output");
 
