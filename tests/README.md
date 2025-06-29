@@ -16,8 +16,8 @@ Tests are structured by type (unit, integration, system, regression) and organiz
 |                     | `PatientPrinterTest`            | Tests output functionality (e.g., mocking/redirecting `std::cout`)             |In progress|
 | **Integration Tests**| `SavePatientDataToCsvFile`      | Tests saving patient data to a CSV file and content comparison                 |In progress|
 |                     | `ReadPatientDataFromCsvFile`    | Tests reading patient data from CSV and comparing with expected output         |In progress|
-|                     | `DeletePatientDataFromCsvFile`  | Tests deletion of a patient and CSV file correctness afterward                 |Not started|
-|                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |Not started|
+|                     | `DeletePatientDataFromCsvFile`  | Tests deletion of a patient and CSV file correctness afterward                 |In progress|
+|                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |In progress|
 | **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |Not started|
 | **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |Not started|
 |                     | `CheckIfCsvFileExist`           | Ensures the required `.csv` file exists and is accessible                          |Not started|
