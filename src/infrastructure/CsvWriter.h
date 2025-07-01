@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CSV_WRITER_H
+#define CSV_WRITER_H
 #include <vector>
 #include <string>
 #include <fstream>
@@ -14,3 +15,5 @@ class CsvWriter {
             }
         }
 };
+
+#endif // CSV_WRITER_H

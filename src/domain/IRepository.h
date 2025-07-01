@@ -1,4 +1,5 @@
-#pragma once
+#ifndef IREPOSITORY_H
+#define IREPOSITORY_H
 #include <vector>
 #include <string>
 
@@ -9,3 +10,5 @@ class IRepository {
         virtual void save(const std::vector<T>& items) = 0;
         virtual ~IRepository() = default;
 };
+
+#endif // IREPOSITORY_H

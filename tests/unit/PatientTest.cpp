@@ -1,17 +1,6 @@
 #include <gtest/gtest.h>
 #include "../src/domain/Patient.h"
-
-namespace TestData {
-    Patient makeSamplePatient() {
-        return Patient{
-            "John", 
-            "Doe", 
-            "12345678901", 
-            "456 Elm St 555-5678", 
-            "555-5678"
-        };
-    }
-}
+#include "../TestData.h"
 
 // Given: correct patient data
 // When: check if patient initializes correctly

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CSV_READER_H
+#define CSV_READER_H
 #include <vector>
 #include <string>
 #include <fstream>
@@ -21,3 +22,5 @@ class CsvReader {
             return items;
         }
 };
+
+#endif // CSV_READER_H

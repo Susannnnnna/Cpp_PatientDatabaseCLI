@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../src/cli/PatientInputCollector.h"
 #include "../src/cli/PatientPrinter.h"
+#include "../TestData.h"
 
 // Helper to redirect std::cout
 class CoutRedirect {
@@ -23,19 +24,6 @@ class CoutRedirect {
             return capturestream.str();
         }
 };
-
-// Test data generator
-namespace TestData {
-    Patient makeSamplePatient() {
-        return Patient {
-            "John", 
-            "Doe", 
-            "12345678901", 
-            "456 Elm St 555-5678", 
-            "555-5678"
-        };
-    }
-}
 
 // Given: patient vector with one patient
 // When: listPatients is called

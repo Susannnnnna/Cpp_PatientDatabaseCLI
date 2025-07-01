@@ -29,7 +29,7 @@ if (-not (cmake --build .)) {
 
 # === RUN TESTS from AllTests.exe and save unified XML report ===
 
-$testExe = Get-ChildItem -Recurse -Filter "AllTests.exe"
+$testExe = Get-ChildItem -Path "./tests" -Recurse -Filter "AllTests.exe"
 
 if ($testExe) {
     Write-Info "Running tests from AllTests.exe..."
