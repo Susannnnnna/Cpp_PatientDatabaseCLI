@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites tests="17" failures="0" disabled="0" errors="0" time="0.031" timestamp="2025-07-05T15:34:37.485" name="AllTests">
-  <testsuite name="PatientInputCollectorTestBDD" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T15:34:37.486">
-    <testcase name="GivenValidInput_WhenCollectsPatient_ThenReturnCorrectPatient" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientInputCollectorTest.cpp" line="9" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.486" classname="PatientInputCollectorTestBDD" />
-    <testcase name="Given_PeselPrompt_WhenAskForPesel_ThenReturnCorrectInput" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientInputCollectorTest.cpp" line="29" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.487" classname="PatientInputCollectorTestBDD" />
+<testsuites tests="17" failures="0" disabled="0" errors="0" time="0.059" timestamp="2025-07-05T17:25:00.199" name="AllTests">
+  <testsuite name="PatientInputCollectorTestBDD" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.001" timestamp="2025-07-05T17:25:00.203">
+    <testcase name="GivenValidInput_WhenCollectsPatient_ThenReturnCorrectPatient" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientInputCollectorTest.cpp" line="9" status="run" result="completed" time="0.001" timestamp="2025-07-05T17:25:00.203" classname="PatientInputCollectorTestBDD" />
+    <testcase name="Given_PeselPrompt_WhenAskForPesel_ThenReturnCorrectInput" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientInputCollectorTest.cpp" line="29" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.205" classname="PatientInputCollectorTestBDD" />
   </testsuite>
-  <testsuite name="PatientPrinterTestBDD" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T15:34:37.487">
-    <testcase name="GivenPatientList_WhenListPatientCalled_ThenShoudlPrintFullData" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="31" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.487" classname="PatientPrinterTestBDD" />
-    <testcase name="GivenEmptyPatientList_WhenListPatientsCalled_ThenShouldPrintNoPatientsMessage" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="50" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.487" classname="PatientPrinterTestBDD" />
-    <testcase name="GivenMessageString_WhenPrintMessageCalled_ThenShouldOutputGivenText" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="65" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.487" classname="PatientPrinterTestBDD" />
+  <testsuite name="PatientPrinterTestBDD" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T17:25:00.206">
+    <testcase name="GivenPatientList_WhenListPatientCalled_ThenShoudlPrintFullData" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="31" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.206" classname="PatientPrinterTestBDD" />
+    <testcase name="GivenEmptyPatientList_WhenListPatientsCalled_ThenShouldPrintNoPatientsMessage" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="50" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.206" classname="PatientPrinterTestBDD" />
+    <testcase name="GivenMessageString_WhenPrintMessageCalled_ThenShouldOutputGivenText" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientPrinterTest.cpp" line="65" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.206" classname="PatientPrinterTestBDD" />
   </testsuite>
-  <testsuite name="PatientTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T15:34:37.487">
-    <testcase name="GivenValidData_WhenPatientCreated_ThenFieldsAreInitializedCorrectly" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientTest.cpp" line="8" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.487" classname="PatientTestBDD" />
+  <testsuite name="PatientTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T17:25:00.206">
+    <testcase name="GivenValidData_WhenPatientCreated_ThenFieldsAreInitializedCorrectly" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\PatientTest.cpp" line="8" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.207" classname="PatientTestBDD" />
   </testsuite>
-  <testsuite name="ValidatorTestBDD" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-07-05T15:34:37.488">
-    <testcase name="GivenEmptyPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="7" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.488" classname="ValidatorTestBDD" />
-    <testcase name="GivenTooShortPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="16" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.488" classname="ValidatorTestBDD" />
-    <testcase name="GivenTooLongPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="25" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.488" classname="ValidatorTestBDD" />
-    <testcase name="GivenPeselWithLetters_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="34" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.488" classname="ValidatorTestBDD" />
-    <testcase name="GivenCorrectPesel_WhenValidated_ThenReturnTrue" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="43" status="run" result="completed" time="0." timestamp="2025-07-05T15:34:37.488" classname="ValidatorTestBDD" />
+  <testsuite name="ValidatorTestBDD" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0.002" timestamp="2025-07-05T17:25:00.207">
+    <testcase name="GivenEmptyPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="7" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.207" classname="ValidatorTestBDD" />
+    <testcase name="GivenTooShortPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="16" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.207" classname="ValidatorTestBDD" />
+    <testcase name="GivenTooLongPesel_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="25" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.207" classname="ValidatorTestBDD" />
+    <testcase name="GivenPeselWithLetters_WhenValidated_ThenReturnFalse" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="34" status="run" result="completed" time="0." timestamp="2025-07-05T17:25:00.208" classname="ValidatorTestBDD" />
+    <testcase name="GivenCorrectPesel_WhenValidated_ThenReturnTrue" file="D:\CppProjects\PatientDatabaseCLI\tests\unit\ValidatorTest.cpp" line="43" status="run" result="completed" time="0.001" timestamp="2025-07-05T17:25:00.208" classname="ValidatorTestBDD" />
   </testsuite>
-  <testsuite name="DeletePatientDataFromCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2025-07-05T15:34:37.488">
-    <testcase name="GivenCsvWithPatients_WhenDeleteOneByPesel_ThenCSVIsUpdated" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\DeletePatientDataFromCsvFile.cpp" line="15" status="run" result="completed" time="0.004" timestamp="2025-07-05T15:34:37.488" classname="DeletePatientDataFromCsvFileBDD" />
+  <testsuite name="DeletePatientDataFromCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.007" timestamp="2025-07-05T17:25:00.210">
+    <testcase name="GivenCsvWithPatients_WhenDeleteOneByPesel_ThenCSVIsUpdated" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\DeletePatientDataFromCsvFile.cpp" line="15" status="run" result="completed" time="0.006" timestamp="2025-07-05T17:25:00.210" classname="DeletePatientDataFromCsvFileBDD" />
   </testsuite>
-  <testsuite name="EditPatientDataInCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.006" timestamp="2025-07-05T15:34:37.493">
-    <testcase name="GivenPatientInCsv_WhenEditByPesel_ThenUpdatedDataIsSaved" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\EditPatientDataInCsvFile.cpp" line="15" status="run" result="completed" time="0.006" timestamp="2025-07-05T15:34:37.493" classname="EditPatientDataInCsvFileBDD" />
+  <testsuite name="EditPatientDataInCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.005" timestamp="2025-07-05T17:25:00.218">
+    <testcase name="GivenPatientInCsv_WhenEditByPesel_ThenUpdatedDataIsSaved" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\EditPatientDataInCsvFile.cpp" line="15" status="run" result="completed" time="0.005" timestamp="2025-07-05T17:25:00.218" classname="EditPatientDataInCsvFileBDD" />
   </testsuite>
-  <testsuite name="ReadPatientDataFromCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.003" timestamp="2025-07-05T15:34:37.500">
-    <testcase name="GivenPatientDataFromCsvFile_WhenLoaded_ThenReturnCorrectPatients" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\ReadPatientDataFromCsvFile.cpp" line="14" status="run" result="completed" time="0.003" timestamp="2025-07-05T15:34:37.500" classname="ReadPatientDataFromCsvFileBDD" />
+  <testsuite name="ReadPatientDataFromCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.006" timestamp="2025-07-05T17:25:00.224">
+    <testcase name="GivenPatientDataFromCsvFile_WhenLoaded_ThenReturnCorrectPatients" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\ReadPatientDataFromCsvFile.cpp" line="14" status="run" result="completed" time="0.005" timestamp="2025-07-05T17:25:00.224" classname="ReadPatientDataFromCsvFileBDD" />
   </testsuite>
-  <testsuite name="SavePatientDataToCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.002" timestamp="2025-07-05T15:34:37.504">
-    <testcase name="GivenPatient_WhenSavedToCsv_ThenFileContainsCorrectData" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\SavePatientDataToCsvFile.cpp" line="14" status="run" result="completed" time="0.002" timestamp="2025-07-05T15:34:37.504" classname="SavePatientDataToCsvFileBDD" />
+  <testsuite name="SavePatientDataToCsvFileBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.007" timestamp="2025-07-05T17:25:00.231">
+    <testcase name="GivenPatient_WhenSavedToCsv_ThenFileContainsCorrectData" file="D:\CppProjects\PatientDatabaseCLI\tests\integration\SavePatientDataToCsvFile.cpp" line="14" status="run" result="completed" time="0.007" timestamp="2025-07-05T17:25:00.231" classname="SavePatientDataToCsvFileBDD" />
   </testsuite>
-  <testsuite name="SystemTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2025-07-05T15:34:37.507">
-    <testcase name="RunMenu_SimulateFullCLISession" file="D:\CppProjects\PatientDatabaseCLI\tests\system\RunMenuTest.cpp" line="50" status="run" result="completed" time="0.004" timestamp="2025-07-05T15:34:37.507" classname="SystemTestBDD" />
+  <testsuite name="SystemTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.013" timestamp="2025-07-05T17:25:00.239">
+    <testcase name="RunMenu_SimulateFullCLISession" file="D:\CppProjects\PatientDatabaseCLI\tests\system\RunMenuTest.cpp" line="50" status="run" result="completed" time="0.013" timestamp="2025-07-05T17:25:00.239" classname="SystemTestBDD" />
   </testsuite>
-  <testsuite name="RegressionTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2025-07-05T15:34:37.511">
-    <testcase name="checkIfCsvFileCanBeRead" file="D:\CppProjects\PatientDatabaseCLI\tests\regression\CheckIfCsvFileCanBeRead.cpp" line="14" status="run" result="completed" time="0.004" timestamp="2025-07-05T15:34:37.511" classname="RegressionTestBDD" />
+  <testsuite name="RegressionTestBDD" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.005" timestamp="2025-07-05T17:25:00.252">
+    <testcase name="checkIfCsvFileCanBeRead" file="D:\CppProjects\PatientDatabaseCLI\tests\regression\CheckIfCsvFileCanBeRead.cpp" line="14" status="run" result="completed" time="0.004" timestamp="2025-07-05T17:25:00.252" classname="RegressionTestBDD" />
   </testsuite>
 </testsuites>

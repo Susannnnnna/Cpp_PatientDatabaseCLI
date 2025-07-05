@@ -3,9 +3,10 @@
 #include <string>
 #include <filesystem>
 
-#include "../src/domain/Patient.h"
 #include "../src/services/PatientService.h"
 #include "../src/infrastructure/CsvPatientRepository.h"
+#include "../TestData.h"
+#include "../TestHelpers.h"
 
 namespace fs = std::filesystem;
 
@@ -13,31 +14,36 @@ namespace fs = std::filesystem;
 // When: a patient is deleted by their PESEL (using PatientService)
 // Then: the CSV file should be updated correctly
 TEST(DeletePatientDataFromCsvFileBDD, GivenCsvWithPatients_WhenDeleteOneByPesel_ThenCSVIsUpdated) {
-    std:: string filePath = "test-output/delete_test.csv";
-    fs::create_directories("test-output");
+    auto filePath = TestHelpers::deleteTestFile();
+
+    Patient john = TestData::PatientFactory::makeSamplePatient();
+    Patient alice = TestData::PatientFactory::makeSamplePatient2();
 
     std::ofstream outFile(filePath);
-    outFile << "Alice,Smith,12345678901,1980-01-01\n";
-    outFile << "Bob,Brown,23456789012,1990-02-02\n";
+    outFile << john.first_name << "," << john.last_name << "," << john.pesel << "," << john.address << "," << john.phone_number << "\n";
+    outFile << alice.first_name << "," << alice.last_name << "," << alice.pesel << "," << alice.address << "," << alice.phone_number << "\n";
     outFile.close();
 
-    CsvPatientRepository repo(filePath);
+    CsvPatientRepository repo(filePath.string());
     PatientService service;
 
     std::vector<Patient> loadedPatients = repo.load();
     ASSERT_EQ(loadedPatients.size(), 2);
 
-    std::vector<Patient> updated = service.deletePatient(loadedPatients, "12345678901");
+    // Delete John by PESEL
+    std::vector<Patient> updated = service.deletePatient(loadedPatients, john.pesel);
     repo.save(updated);
 
+    // Check if only Alice remains in the file
     std::ifstream inFile(filePath);
     std::string line;
     std::getline(inFile, line);
-    EXPECT_EQ(line, "Bob,Brown,23456789012,1990-02-02");
+    
+    EXPECT_EQ(line, alice.first_name + "," + alice.last_name + "," + alice.pesel + "," + alice.address + "," + alice.phone_number);
 
     std::getline(inFile, line);
     EXPECT_TRUE(line.empty()); // Ensure no extra lines
 
     inFile.close();
-    fs::remove(filePath);
+    TestHelpers::deleteFile(filePath.string());
 }

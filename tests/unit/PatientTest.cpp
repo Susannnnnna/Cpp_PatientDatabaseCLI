@@ -6,7 +6,7 @@
 // When: check if patient initializes correctly
 // Then: should initialize with correct values
 TEST(PatientTestBDD, GivenValidData_WhenPatientCreated_ThenFieldsAreInitializedCorrectly) {
-    Patient p = TestData::makeSamplePatient();    
+    Patient p = TestData::PatientFactory::makeSamplePatient();    
     EXPECT_EQ(p.first_name, "John");
     EXPECT_EQ(p.last_name, "Doe");
     EXPECT_EQ(p.pesel, "12345678901");

@@ -3,8 +3,9 @@
 #include <string>
 #include <filesystem>
 
-#include "../src/domain/Patient.h"
 #include "../src/infrastructure/CsvPatientRepository.h"
+#include "../TestData.h"
+#include "../TestHelpers.h"
 
 namespace fs = std::filesystem;
 
@@ -12,19 +13,13 @@ namespace fs = std::filesystem;
 // When: saving patient data to a temprorary CSV file
 // Then: the file should contain correct patient data in CSV format
 TEST(SavePatientDataToCsvFileBDD, GivenPatient_WhenSavedToCsv_ThenFileContainsCorrectData) {
-    std::string tempFilePath = "test-output/save_test.csv";
-    fs::create_directories("test-output");
+    auto tempFilePath = TestHelpers::saveTestFile();
 
-    Patient patient {
-        "Alice",
-        "Smith",
-        "98765432101",
-        "789 Oak St 555-6789",
-        "555-6789"
-    };
+    // Use PatientFactory for consistent test data
+    Patient expected = TestData::PatientFactory::makeSamplePatient();
 
-    std::vector<Patient> patients = { patient };
-    CsvPatientRepository repo(tempFilePath);
+    std::vector<Patient> patients = { expected };
+    CsvPatientRepository repo(tempFilePath.string());
 
     repo.save(patients);
 
@@ -34,8 +29,16 @@ TEST(SavePatientDataToCsvFileBDD, GivenPatient_WhenSavedToCsv_ThenFileContainsCo
     std::string line;
     std::getline(inFile, line);
     
-    EXPECT_EQ(line, "Alice,Smith,98765432101,789 Oak St 555-6789,555-6789");
+    // Compare saved CSV line to expected serialization
+    std::ostringstream expectedCsv;
+    expectedCsv << expected.first_name << ","
+                << expected.last_name << ","
+                << expected.pesel << ","
+                << expected.address << ","
+                << expected.phone_number;
+
+    EXPECT_EQ(line, expectedCsv.str());
 
     inFile.close();
-    fs::remove(tempFilePath);
+    TestHelpers::deleteFile(tempFilePath.string());
 }

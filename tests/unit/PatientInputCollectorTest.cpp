@@ -1,39 +1,45 @@
 #include <gtest/gtest.h>
 #include <sstream>
 #include "../src/cli/PatientInputCollector.h"
-#include "../src/domain/Patient.h"
+#include "../TestData.h"
+#include "../TestHelpers.h"
 
 // Given: valid input data entered by user
 // When: collectNewPatient is called
 // Then: it should return a patient object with correct fields
 TEST(PatientInputCollectorTestBDD, GivenValidInput_WhenCollectsPatient_ThenReturnCorrectPatient) {
-    std::istringstream input("John\nDoe\n12345678901\n123 Main St\n555-1234");
-    std::streambuf* originalCin = std::cin.rdbuf(input.rdbuf()); //redirect
-
     PatientInputCollector collector;
-    Patient p = collector.collectNewPatient();
-    
+    Patient expected = TestData::PatientFactory::makeSamplePatient();
 
-    std::cin.rdbuf(originalCin);
+    std::ostringstream inputStream;
+    inputStream
+        << expected.first_name << "\n"
+        << expected.last_name << "\n"
+        << expected.pesel << "\n"
+        << expected.address << "\n"
+        << expected.phone_number << "\n";
 
-    EXPECT_EQ(p.first_name, "John");
-    EXPECT_EQ(p.last_name, "Doe");
-    EXPECT_EQ(p.pesel, "12345678901");
-    EXPECT_EQ(p.address, "123 Main St");
-    EXPECT_EQ(p.phone_number, "555-1234");
+    TestHelpers::CinRedirect redirect(inputStream.str());
+
+    Patient actual = collector.collectNewPatient();
+
+    EXPECT_EQ(actual.first_name, expected.first_name);
+    EXPECT_EQ(actual.last_name, expected.last_name);
+    EXPECT_EQ(actual.pesel, expected.pesel);
+    EXPECT_EQ(actual.address, expected.address);
+    EXPECT_EQ(actual.phone_number, expected.phone_number);
 }
 
 // Given: pesel prompt
 // When:: ask for pesel
 // Then: it should return the entered pesel
-TEST(PatientInputCollectorTestBDD, Given_PeselPrompt_WhenAskForPesel_ThenReturnCorrectInput) {
-    std::istringstream input("12345678901");
-    std::streambuf* originalCin = std::cin.rdbuf(input.rdbuf());
+TEST(PatientInputCollectorTestBDD, GivenPeselPrompt_WhenAskForPesel_ThenReturnCorrectInput) {
+    std::string expectedPesel = TestData::PatientFactory::makeSamplePatient().pesel;
+    TestHelpers::CinRedirect redirect(expectedPesel);
 
     PatientInputCollector collector;
-    std::string pesel = collector.askForPesel("Please enter PESEL:");
+    
+    std::string actualPesel = collector.askForPesel("Please enter PESEL:");
 
-    std::cin.rdbuf(originalCin);
-
-    EXPECT_EQ(pesel, "12345678901");
+    EXPECT_EQ(actualPesel, expectedPesel);
 }

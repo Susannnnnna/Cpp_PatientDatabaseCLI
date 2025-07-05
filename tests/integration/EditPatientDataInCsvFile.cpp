@@ -3,9 +3,10 @@
 #include <string>
 #include <filesystem>
 
-#include "../src/domain/Patient.h"
 #include "../src/infrastructure/CsvPatientRepository.h"
 #include "../src/services/PatientService.h"
+#include "../TestData.h"
+#include "../TestHelpers.h"
 
 namespace fs = std::filesystem;
 
@@ -13,36 +14,34 @@ namespace fs = std::filesystem;
 // When: a patient is edited by their PESEL (using PatientService)
 // Then: the CSV file should be updated correctly
 TEST(EditPatientDataInCsvFileBDD, GivenPatientInCsv_WhenEditByPesel_ThenUpdatedDataIsSaved) {
-    std::string filePath = "test-output/edit_test.csv";
-    fs::create_directories("test-output");
+    auto filePath = TestHelpers::editTestFile();
 
+    // Use PatientFactory for test data
+    Patient original = TestData::PatientFactory::makeSamplePatient();
+    Patient updated = TestData::PatientFactory::makeSamplePatient2();
+
+    // Write original patient to CSV
     std::ofstream outFile(filePath);
-    outFile << "Alice,Smith,12345678901,789 Oak St 555-6789,555-6789\n";
+    outFile << original.first_name << "," << original.last_name << "," 
+            << original.pesel << "," << original.address << "," << original.phone_number << "\n";
     outFile.close();
 
-    CsvPatientRepository repo(filePath);
+    CsvPatientRepository repo(filePath.string());
     PatientService service;
 
     std::vector<Patient> loaded = repo.load();
     ASSERT_EQ(loaded.size(), 1);
-    EXPECT_EQ(loaded[0].address, "789 Oak St 555-6789");
+    EXPECT_EQ(loaded[0].address, original.address);
 
-    Patient updated;
-    updated.first_name = "Alice";
-    updated.last_name = "Smith";
-    updated.pesel = "12345678901";
-    updated.address = "123 New St 555-6789";
-    updated.phone_number = "555-6789";
-
-    std::vector<Patient> edited = service.editPatient(loaded, "12345678901", updated);
+    std::vector<Patient> edited = service.editPatient(loaded, original.pesel, updated);
     repo.save(edited);
 
     std::ifstream inFile(filePath);
     std::string line;
     std::getline(inFile, line);
-    EXPECT_EQ(line, "Alice,Smith,12345678901,123 New St 555-6789,555-6789");
+    EXPECT_EQ(line, updated.first_name + "," + updated.last_name + "," + updated.pesel + "," + updated.address + "," + updated.phone_number);
 
     inFile.close();
-    fs::remove(filePath);
+    TestHelpers::deleteFile(filePath.string());
 }
 
