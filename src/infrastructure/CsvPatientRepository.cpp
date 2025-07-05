@@ -5,8 +5,12 @@ void serializePatient(std::ofstream& file, const Patient& p) {
     file << p.first_name << ","
          << p.last_name << ","
          << p.pesel << ","
-         << p.address << ","
-         << p.phone_number << "\n";
+         << p.address;
+
+    if (!p.phone_number.empty()) {
+        file << "," << p.phone_number;
+    }
+    file << "\n";
 }
 
 Patient deserializePatient(std::istringstream& iss) {

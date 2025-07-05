@@ -8,11 +8,9 @@
 #include "../infrastructure/CsvPatientRepository.h"
 #include "../validation/Validator.h"
 
-void runMenu() {
-    std::filesystem::path path = std::filesystem::path(PROJECT_DIR) / "data";
-    // std::cout << "[DEBUG] Absolute path to 'data': " << path.string() << "\n";
+void runMenu(const std::string& filePath) {
+    std::filesystem::path path = std::filesystem::path(filePath).parent_path();
     std::filesystem::create_directories(path);
-    std::string filePath = (path / "patients.csv").string();
 
     if (!std::filesystem::exists(filePath)) {
         std::ofstream createFile(filePath);

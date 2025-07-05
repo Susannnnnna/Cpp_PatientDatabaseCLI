@@ -6,6 +6,9 @@ file(GLOB_RECURSE INTEGRATION_TESTS "integration/*.cpp")
 file(GLOB_RECURSE SYSTEM_TESTS "system/*.cpp")
 file(GLOB_RECURSE REGRESSION_TESTS "regression/*.cpp")
 
+# Add PROJECT_DIR for tests too
+add_compile_definitions(PROJECT_DIR="${CMAKE_SOURCE_DIR}")
+
 # Create AllTests executable
 add_executable(AllTests
     AllTests.cpp

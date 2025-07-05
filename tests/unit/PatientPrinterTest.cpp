@@ -36,10 +36,11 @@ TEST(PatientPrinterTestBDD, GivenPatientList_WhenListPatientCalled_ThenShoudlPri
     printer.listPatients(patients);
     std::string output = redirect.getOutput();
 
-    EXPECT_NE(output.find("John Doe"), std::string::npos);
-    EXPECT_NE(output.find("12345678901"), std::string::npos);
-    EXPECT_NE(output.find("456 Elm St 555-5678"), std::string::npos);
-    EXPECT_NE(output.find("555-5678"), std::string::npos);
+    EXPECT_NE(output.find("First Name: John"), std::string::npos);
+    EXPECT_NE(output.find("Last Name: Doe"), std::string::npos);
+    EXPECT_NE(output.find("PESEL: 12345678901"), std::string::npos);
+    EXPECT_NE(output.find("Address: 456 Elm St 555-5678"), std::string::npos);
+    EXPECT_NE(output.find("Phone Number: 555-5678"), std::string::npos);
 }
 
 

@@ -18,9 +18,8 @@ Tests are structured by type (unit, integration, system, regression) and organiz
 |                     | `ReadPatientDataFromCsvFile`    | Tests reading patient data from CSV and comparing with expected output         |In progress|
 |                     | `DeletePatientDataFromCsvFile`  | Tests deletion of a patient and CSV file correctness afterward                 |In progress|
 |                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |In progress|
-| **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |Not started|
-| **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |Not started|
-|                     | `CheckIfCsvFileExist`           | Ensures the required `.csv` file exists and is accessible                          |Not started|
+| **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |In progress|
+| **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |In progress|
 | **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |Finished |
 
 ---

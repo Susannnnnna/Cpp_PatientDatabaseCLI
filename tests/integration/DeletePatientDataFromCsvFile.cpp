@@ -12,7 +12,7 @@ namespace fs = std::filesystem;
 // Given: a CSV file with patient data
 // When: a patient is deleted by their PESEL (using PatientService)
 // Then: the CSV file should be updated correctly
-TEST(DeletePateintDataFromCsvFileBDD, GivenCsvWithPatients_WhenDeleteOneByPesel_ThenCSVIsUpdated) {
+TEST(DeletePatientDataFromCsvFileBDD, GivenCsvWithPatients_WhenDeleteOneByPesel_ThenCSVIsUpdated) {
     std:: string filePath = "test-output/delete_test.csv";
     fs::create_directories("test-output");
 
