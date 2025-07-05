@@ -8,19 +8,19 @@ Tests are structured by type (unit, integration, system, regression) and organiz
 
 ## 📂 Test Structure
 
-| **Test Type**       | **Test Name**                   | **Description**                                                                 | **State** |
-|---------------------|----------------------------------|---------------------------------------------------------------------------------|----------------------------------|
-| **Unit Tests**       | `PatientTest`                   | Tests the `Patient` class and its correct initialization                        |Finished|
-|                     | `ValidatorTest`                 | Tests the correctness of PESEL validation logic                                |Finished|
-|                     | `PatientInputCollectorTest`     | Tests user input collection (e.g., mocking `std::cin`, input validation)       |Finished|
-|                     | `PatientPrinterTest`            | Tests output functionality (e.g., mocking/redirecting `std::cout`)             |In progress|
-| **Integration Tests**| `SavePatientDataToCsvFile`      | Tests saving patient data to a CSV file and content comparison                 |In progress|
-|                     | `ReadPatientDataFromCsvFile`    | Tests reading patient data from CSV and comparing with expected output         |In progress|
-|                     | `DeletePatientDataFromCsvFile`  | Tests deletion of a patient and CSV file correctness afterward                 |In progress|
-|                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |In progress|
-| **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |In progress|
-| **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |In progress|
-| **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |Finished |
+| **Test Type**       | **Test Name**                   | **Description**                                                                 |
+|---------------------|----------------------------------|---------------------------------------------------------------------------------|
+| **Unit Tests**       | `PatientTest`                   | Tests the `Patient` class and its correct initialization                        |
+|                     | `ValidatorTest`                 | Tests the correctness of PESEL validation logic                                |
+|                     | `PatientInputCollectorTest`     | Tests user input collection (e.g., mocking `std::cin`, input validation)       |
+|                     | `PatientPrinterTest`            | Tests output functionality (e.g., mocking/redirecting `std::cout`)             |
+| **Integration Tests**| `SavePatientDataToCsvFile`      | Tests saving patient data to a CSV file and content comparison                 |
+|                     | `ReadPatientDataFromCsvFile`    | Tests reading patient data from CSV and comparing with expected output         |
+|                     | `DeletePatientDataFromCsvFile`  | Tests deletion of a patient and CSV file correctness afterward                 |
+|                     | `EditPatientDataInCsvFile`      | Tests patient editing flow and file update integrity                           |
+| **System Tests**     | `RunMenu`                       | Simulates a full CLI session with interactive commands                         |
+| **Regression Tests** | `CheckIfCsvFileCanBeRead`       | Ensures previously working file reading logic still behaves as expected        |
+| **Main Aggregator**  | `AllTests`                     | Runs all available tests, with `--gtest_filter` support for test selection      |
 
 ---
 
