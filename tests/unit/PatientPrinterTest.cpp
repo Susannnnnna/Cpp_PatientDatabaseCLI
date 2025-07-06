@@ -7,6 +7,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-004
+
 
 void assertPatientPrinted(const std::string& output, const Patient& patient) {
     EXPECT_NE(output.find("First Name: " + patient.first_name), std::string::npos);

@@ -4,6 +4,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-006
+
 // Given: a CSV file with patient data
 // When: CsvPatientRepository is used to load data
 // Then: it should be able to read the file without errors

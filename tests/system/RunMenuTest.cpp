@@ -9,6 +9,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-009, REQ-003
+
 // === TEST ===
 // Given: Empty patient database
 // When: Simulate CLI session: add patient -> list patients -> exit

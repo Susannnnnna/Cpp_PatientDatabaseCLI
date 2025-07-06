@@ -4,6 +4,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-003
+
 // Given: valid input data entered by user
 // When: collectNewPatient is called
 // Then: it should return a patient object with correct fields

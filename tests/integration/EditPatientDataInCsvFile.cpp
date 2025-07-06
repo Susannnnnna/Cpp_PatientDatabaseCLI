@@ -8,6 +8,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-008
+
 namespace fs = std::filesystem;
 
 // Given: a CSV file with patient data

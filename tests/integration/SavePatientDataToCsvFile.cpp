@@ -7,6 +7,8 @@
 #include "../TestData.h"
 #include "../TestHelpers.h"
 
+// Covers: REQ-005
+
 namespace fs = std::filesystem;
 
 // Given: patient list

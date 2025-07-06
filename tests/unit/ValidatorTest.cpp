@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "../src/validation/Validator.h"
 
+// Covers: REQ-002
+
 // Given: empty pesel
 // When: validate pesel
 // Then: should return FALSE

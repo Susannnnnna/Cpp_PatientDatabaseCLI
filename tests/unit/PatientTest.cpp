@@ -2,6 +2,8 @@
 #include "../src/domain/Patient.h"
 #include "../TestData.h"
 
+// Covers: REQ-001
+
 // Given: correct patient data
 // When: check if patient initializes correctly
 // Then: should initialize with correct values
